@@ -18,8 +18,16 @@ body {
   justify-content: space-between;
   background-color: #404581;
 }
+.header_logo-link {
+  text-align: center;
+  color: #02b1c8;
+  text-decoration: none;
+}
+
 .header_logo-img {
   max-width: 10em;
+  text-align: center;
+  vertical-align: middle;
 }
 .header_list {
   list-style: none;
