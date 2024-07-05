@@ -8,7 +8,7 @@ In the project directory, you can run:
 
 ### ВАЖНО
 ### `npm run dev`
-Запустится сервер одновременно с приложение 
+Запустить сервер одновременно с приложением 
 При запуске только приложения, будет ошибка получения данных
 Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 
