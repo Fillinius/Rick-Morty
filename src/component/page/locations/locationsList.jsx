@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Locationslist = ({ data }) => {
   return (
     <div className='card'>
-      <ul className='card-list'>
-        {data.map(item => <li key={item.id}>
-          <Link to={item.id} className='card-link'>
+      <ul className='card-list '>
+        {data.map(item => <li key={item.id} className='card-list--location'>
+          <Link to={item.id} className='card-link '>
 
             <h2 className='card-title'>{item.name}</h2>
             <p className='card-text'>Dimension - {item.dimension}</p>
