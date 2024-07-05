@@ -8,6 +8,7 @@ import Episodies from './component/ui/episodies'
 import HeroCard from './component/page/heroes/heroCard'
 import EpisodeCard from './component/page/episode/episodeCard'
 import LocationCard from './component/page/locations/locationCard'
+import NotFound from './component/notFound'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route index element={<Episodies />} />
             <Route path=":dataId" element={<EpisodeCard />} />
           </Route>
+          <Route path="*" element={<NotFound />} />.
         </Routes>
       </div>
     </>
