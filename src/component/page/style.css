@@ -1,0 +1,23 @@
+.card {
+  text-align: center;
+}
+.card-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.card-link {
+  text-align: start;
+  text-decoration: none;
+  color: #02b1c8;
+}
+.card-title {
+  margin: 0;
+}
+.card-text {
+  margin: 0;
+  padding: 0;
+}

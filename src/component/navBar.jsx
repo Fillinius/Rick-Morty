@@ -14,7 +14,7 @@ const NavBar = () => {
         </div>
         <ul className="header_list">
           <li className="header_list-item">
-            <Link className="header_list-link" to="/heroes">
+            <Link className="header_list-link" to="/characters">
               Hero
             </Link>
           </li>
