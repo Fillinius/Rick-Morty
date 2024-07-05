@@ -24,7 +24,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link className="header_list-link" to="/episodies">
+            <Link className="header_list-link" to="/episode">
               Episode
             </Link>
           </li>
