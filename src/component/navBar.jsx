@@ -19,7 +19,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link className="header_list-link" to="/locations">
+            <Link className="header_list-link" to="/location">
               Location
             </Link>
           </li>
