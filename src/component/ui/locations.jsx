@@ -12,7 +12,7 @@ const Locations = () => {
   return (<>
     {error && (<p> Ошибка получения данных</p>)}
     {isLoading && (<h1>Загрузка данных</h1>)}
-    {data && !isLoading && (
+    {data && !isLoading && !error && (
       data.length === 0
         ? 'Список пуст'
         : <Locationslist data={data} />)}

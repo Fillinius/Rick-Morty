@@ -10,9 +10,9 @@ const Heroes = () => {
 
   const { data, isLoading, error } = useFetch(baseUrl + pathname)
   return (<>
-    {error && (<p>{error} - Ошибка получения данных</p>)}
+    {error && (<p>- Ошибка получения данных</p>)}
     {isLoading && (<h1>Загрузка данных</h1>)}
-    {data && !isLoading && (
+    {data && !isLoading && !error && (
       data.length === 0
         ? 'Список пуст'
         : <HeroesList data={data} />)}

@@ -8,7 +8,6 @@ const EpisodeCard = () => {
   const baseUrl = 'http://localhost:3001'
   const { data } = useFetch(baseUrl + pathname)
   const dataById = data
-  console.log(data);
 
   const handleClick = () => {
     navigate('/episode')
