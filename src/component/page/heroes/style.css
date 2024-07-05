@@ -21,6 +21,10 @@
   margin: 0;
   padding: 0;
 }
-/* .card-link--location {
-  border: 1px solid #02b1c8;
-} */
+.cardById {
+  text-align: center;
+  margin: 1em auto;
+  padding: 1em 1em;
+  border: 0.2em solid #02b1c8;
+  border-radius: 1em;
+}
