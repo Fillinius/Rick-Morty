@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import '../../../src/index.css'
 import HeroesList from '../page/heroes/heroesList';
@@ -9,15 +9,6 @@ const Heroes = () => {
 
   const location = useLocation()
   const { data, isLoading, error, handleAsc, handleDesc } = useFetch(location.pathname)
-
-  // // Хук для работы с query-параметрами
-  // const [searchParams, setSearchParams] = useSearchParams({ n: '' });
-  // console.log(searchParams);
-  // // Получение текущего порядка сортировки из query-параметров
-  // const sortOrder = searchParams.get('sort') || 'createdASC';
-  // console.log(sortOrder);
-
-
 
   return (<>
     {error && (<p>- Ошибка получения данных</p>)}

@@ -5,10 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const HeroCard = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
-  const baseUrl = 'http://localhost:3001'
-  const { data } = useFetch(baseUrl + pathname)
+  const { data } = useFetch(pathname)
   const dataById = data
-
   const handleClick = () => {
     navigate('/characters', { replace: true })
   }
