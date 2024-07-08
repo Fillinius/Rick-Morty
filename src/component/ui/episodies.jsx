@@ -6,9 +6,8 @@ import EpisodiesList from '../page/episode/episodiesList';
 
 const Episodies = () => {
   const { pathname } = useLocation()
-  const baseUrl = 'http://localhost:3001'
 
-  const { data, isLoading, error } = useFetch(baseUrl + pathname)
+  const { data, isLoading, error } = useFetch(pathname)
   return (<>
     {error && (<p> Ошибка получения данных</p>)}
     {isLoading && (<h1>Загрузка данных</h1>)}

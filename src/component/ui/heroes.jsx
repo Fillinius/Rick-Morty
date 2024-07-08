@@ -1,17 +1,31 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import '../../../src/index.css'
 import HeroesList from '../page/heroes/heroesList';
+import _ from "lodash"
 
 const Heroes = () => {
-  const { pathname } = useLocation()
-  const baseUrl = 'http://localhost:3001'
 
-  const { data, isLoading, error } = useFetch(baseUrl + pathname)
+  const location = useLocation()
+  const { data, isLoading, error, handleAsc, handleDesc } = useFetch(location.pathname)
+
+  // // Хук для работы с query-параметрами
+  // const [searchParams, setSearchParams] = useSearchParams({ n: '' });
+  // console.log(searchParams);
+  // // Получение текущего порядка сортировки из query-параметров
+  // const sortOrder = searchParams.get('sort') || 'createdASC';
+  // console.log(sortOrder);
+
+
+
   return (<>
     {error && (<p>- Ошибка получения данных</p>)}
     {isLoading && (<h1>Загрузка данных</h1>)}
+    <div>
+      <button onClick={handleAsc}>Asc</button>
+      <button onClick={handleDesc}>Desc</button>
+    </div>
     {data && !isLoading && !error && (
       data.length === 0
         ? 'Список пуст'

@@ -1,13 +1,23 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-
-const useFetch = (URL) => {
+const useFetch = (QUERY) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [searchParams, setSearchParams] = useSearchParams({ 'n': '' })
+  const handleAsc = () => {
+    setSearchParams('_sort=created&_order=asc')
+  }
+
+  const handleDesc = () => {
+    setSearchParams('_sort=created&_order=desc')
+  }
+
+  const baseUrl = 'http://localhost:3001'
 
   useEffect(() => {
-    getAsyncData()
+    getAsyncData(QUERY)
     setIsLoading(true)
   }, [])
 
@@ -18,11 +28,12 @@ const useFetch = (URL) => {
     }
   }, [error])
 
-  async function getAsyncData() {
+  async function getAsyncData(query, startpoint = baseUrl) {
     try {
-      await fetch(URL)
+      query ? (query = query) : (query = '')
+      await fetch(`${startpoint}${query}`)
         .then(res => {
-          if (!res.ok) throw new Error("Ошибка получения данных")
+          if (!res.ok) throw new Error('Ошибка получения данных')
           return res.json()
         })
         .then(data => setData(data))
@@ -40,7 +51,9 @@ const useFetch = (URL) => {
     data,
     isLoading,
     error,
-    getDataId
+    getDataId,
+    handleAsc,
+    handleDesc
   });
 }
 
