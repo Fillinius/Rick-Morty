@@ -57,7 +57,7 @@ const useFetch = (QUERY) => {
     return changeData
   }
   return ({
-    data: formatDataFromSearchCreated(data),
+    data: data,
     isLoading,
     error,
     getDataId,
