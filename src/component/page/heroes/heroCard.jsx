@@ -6,7 +6,6 @@ const HeroCard = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { data } = useFetch(pathname)
-  console.log(data);
   const dataById = data
   const handleClick = () => {
     navigate('/characters', { replace: true })

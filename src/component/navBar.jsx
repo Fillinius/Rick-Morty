@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.png'
+import logo from '../logo.png'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
@@ -28,7 +28,16 @@ const NavBar = () => {
               Episode
             </Link>
           </li>
+
         </ul>
+        <div>
+          <Link className="header_list-link" to="/signIn">
+            SignIn
+          </Link>
+          <Link className="header_list-link" to="/signOut">
+            SignOut
+          </Link>
+        </div>
       </nav>
     </header>
   );
