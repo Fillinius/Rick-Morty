@@ -7,13 +7,15 @@ import { useAuth } from './context/AuthProvider.js'
 interface userLocalStorageProp {
   [key: string]: string | null
 }
+const INITIALSTATELOGIN = {
+  name: '',
+  password: '',
+  id: '',
+}
+const KEYUSER = 'user'
 
 const SignIn = () => {
-  const [data, setData] = React.useState({
-    name: '',
-    password: '',
-    id: '',
-  })
+  const [data, setData] = React.useState(INITIALSTATELOGIN)
   const navigate = useNavigate()
   const auth = useAuth()
   const location = useLocation()
@@ -34,7 +36,7 @@ const SignIn = () => {
     })
 
     const userLocalStorage: userLocalStorageProp | null = JSON.parse(
-      localStorage.getItem('user') || 'null'
+      localStorage.getItem(KEYUSER) || 'null'
     )
 
     if (

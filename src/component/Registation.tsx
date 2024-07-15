@@ -3,12 +3,14 @@ import TextField from './form/TextField.tsx'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from './context/AuthProvider.js'
 
+const INITIALSTATEREG = {
+  name: '',
+  password: '',
+  id: '',
+}
+
 const Registration = () => {
-  const [data, setData] = React.useState({
-    name: '',
-    password: '',
-    id: '',
-  })
+  const [data, setData] = React.useState(INITIALSTATEREG)
 
   const navigate = useNavigate()
   const auth = useAuth()

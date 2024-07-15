@@ -6,13 +6,10 @@ const SignOut = () => {
   const auth = useAuth()
 
   const navigate = useNavigate()
-  // useEffect(() => {
-  //   navigate('/signIn')
-  // })
-  // return localStorage.removeItem('user')
-  return auth.signOut(() => {
-    navigate('/signIn')
-  })
+  useEffect(() => {
+    navigate('/signIn/registration')
+  }, [auth])
+  return auth.signOut(() => {})
 }
 
 export default SignOut
