@@ -1,0 +1,43 @@
+.card {
+  text-align: center;
+}
+.card-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 0;
+}
+.card-list--location {
+  border: 1px solid #02b1c8;
+  border-radius: 0.5em;
+  min-width: 360px;
+  max-width: 360px;
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.card-link {
+  text-align: start;
+  text-decoration: none;
+  color: #02b1c8;
+}
+.card-title {
+  margin: 0;
+  text-align: center;
+}
+.card-text {
+  margin: 0;
+  padding: 0;
+  padding-left: 0.5em;
+}
+.cardById {
+  text-align: center;
+  margin: 1em auto;
+  padding: 1em 1em;
+  border: 0.2em solid #02b1c8;
+  border-radius: 1em;
+  padding-left: 0.5em;
+}

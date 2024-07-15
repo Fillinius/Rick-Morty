@@ -9,4 +9,61 @@ body {
 
 .container {
   padding: 0.5em;
+  max-width: 1060px;
+  margin: auto;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #404581;
+}
+.header_logo-link {
+  text-align: center;
+  color: #02b1c8;
+  text-decoration: none;
+}
+
+.header_logo-img {
+  max-width: 10em;
+  text-align: center;
+  vertical-align: middle;
+}
+.header_list {
+  list-style: none;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.header_list-item {
+  text-decoration: none;
+}
+.header_list-link {
+  color: #02b1c8;
+  margin-right: 0.5em;
+  text-decoration: none;
+}
+.main {
+}
+.main-text {
+}
+.main-img {
+  max-width: 1060px;
+}
+
+.register {
+  max-width: 50%;
+  margin: 5em auto;
+  border: 0.2em solid #02b1c8;
+  padding: 1em;
+}
+.register_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.register_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
