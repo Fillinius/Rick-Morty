@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { BASEURL } from '../path/internalPaths.ts';
 
 const useFetch = (QUERY) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams({ 'n': '' })
-
-  const baseUrl = 'http://localhost:3001'
 
   useEffect(() => {
     getAsyncData(QUERY)
@@ -21,7 +20,7 @@ const useFetch = (QUERY) => {
     }
   }, [error])
 
-  async function getAsyncData(query, startpoint = baseUrl) {
+  async function getAsyncData(query, startpoint = BASEURL.base) {
     try {
       query ? (query = query) : (query = '')
       await fetch(`${startpoint}${query}`)
