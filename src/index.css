@@ -50,3 +50,20 @@ body {
 .main-img {
   max-width: 1060px;
 }
+
+.register {
+  max-width: 50%;
+  margin: 5em auto;
+  border: 0.2em solid #02b1c8;
+  padding: 1em;
+}
+.register_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.register_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,20 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { BASEURL } from '../path/internalPaths.ts';
 
 const useFetch = (QUERY) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams({ 'n': '' })
-  const handleAsc = () => {
-    setSearchParams('_sort=created&_order=asc')
-  }
-
-  const handleDesc = () => {
-    setSearchParams('_sort=created&_order=desc')
-  }
-
-  const baseUrl = 'http://localhost:3001'
 
   useEffect(() => {
     getAsyncData(QUERY)
@@ -28,7 +20,7 @@ const useFetch = (QUERY) => {
     }
   }, [error])
 
-  async function getAsyncData(query, startpoint = baseUrl) {
+  async function getAsyncData(query, startpoint = BASEURL.base) {
     try {
       query ? (query = query) : (query = '')
       await fetch(`${startpoint}${query}`)
@@ -43,12 +35,28 @@ const useFetch = (QUERY) => {
     }
   }
 
+  const handleAsc = () => {
+    setSearchParams('_sort=created&_order=asc')
+  }
+  const handleDesc = () => {
+    setSearchParams('_sort=created&_order=desc')
+  }
+
   const getDataId = (id) => {
     return data.find(item => item.id === id)
   }
 
+  const formatDataFromSearchCreated = (formatData) => {
+    const changeData = formatData.map(item => (
+      {
+        ...item,
+        created: ((item.created.slice(0, 19).replace('T', ' ')))
+      }
+    ))
+    return changeData
+  }
   return ({
-    data,
+    data: data,
     isLoading,
     error,
     getDataId,
