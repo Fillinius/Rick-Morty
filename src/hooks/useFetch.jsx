@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { BASEURL } from '../path/internalPaths.ts';
 
+
 const useFetch = (QUERY) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -28,7 +29,7 @@ const useFetch = (QUERY) => {
           if (!res.ok) throw new Error('Ошибка получения данных')
           return res.json()
         })
-        .then(data => setData(data))
+        .then(data => setData(data.results))
       setIsLoading(false)
     } catch (error) {
       setError(error)

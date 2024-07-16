@@ -31,7 +31,7 @@ function App() {
                 </PrivetRoute>
               }
             >
-              <Route path="/characters">
+              <Route path="/character">
                 <Route index element={<Heroes />} />
                 <Route path=":dataId" element={<HeroCard />} />
               </Route>

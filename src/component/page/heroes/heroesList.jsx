@@ -3,6 +3,7 @@ import './style.css'
 import { Link } from 'react-router-dom';
 
 const HeroesList = ({ data }) => {
+  console.log('data', data);
   return (
     <div className='card'>
       <ul className='card-list'>
