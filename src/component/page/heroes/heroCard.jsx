@@ -1,18 +1,19 @@
 import React from 'react';
 import useFetch from '../../../hooks/useFetch';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const HeroCard = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
-  const { data } = useFetch(pathname)
-  const dataById = data
+  const { dataId } = useParams()
+  const { getDataId } = useFetch(`/${pathname.split('/')[1]}`)
+  const dataById = getDataId(dataId)
   const handleClick = () => {
-    navigate('/characters', { replace: true })
+    navigate('/character', { replace: true })
   }
   return (
     <>
-      {dataById.length === 0
+      {typeof dataById === 'undefined'
         ? <p>"Ошибка загрузки данных"</p>
         : <><div className='cardById'>
           <img src={dataById.image} alt={dataById.name + ' logo'} />
