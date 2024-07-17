@@ -1,26 +1,28 @@
 import React from 'react';
 import useFetch from '../../../hooks/useFetch';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const HeroCard = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
-  const { dataId } = useParams()
-  const { getDataId } = useFetch(`/${pathname.split('/')[1]}`)
-  const dataById = getDataId(dataId)
+  const { data } = useFetch(pathname)
+
   const handleClick = () => {
     navigate('/character', { replace: true })
   }
   return (
     <>
-      {typeof dataById === 'undefined'
-        ? <p>"Ошибка загрузки данных"</p>
+      {typeof data === 'undefined'
+        ? <div>
+          <p>"Ошибка загрузки данных"</p>
+          <button onClick={handleClick}>Вернуться к списку</button>
+        </div>
         : <><div className='cardById'>
-          <img src={dataById.image} alt={dataById.name + ' logo'} />
-          <h2 className='card-title'>{dataById.name}</h2>
-          <p className='card-text'>Gender - {dataById.gender}</p>
-          <p className='card-text'>Species - {dataById.species}</p>
-          <p className='card-text'>Status - {dataById.status}</p>
+          <img src={data.image} alt={data.name + ' logo'} />
+          <h2 className='card-title'>{data.name}</h2>
+          <p className='card-text'>Gender - {data.gender}</p>
+          <p className='card-text'>Species - {data.species}</p>
+          <p className='card-text'>Status - {data.status}</p>
 
         </div>
           <button onClick={handleClick} >Вернуться к списку</button></>}

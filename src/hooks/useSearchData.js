@@ -7,7 +7,6 @@ const useSearchData = (pageNumber, endPoint) => {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(false)
   const [hasMore, setHasMore] = useState(false)
-  console.log(data)
 
   const uniqueData = (array) =>
     array.reduce((accumulator, current) => {
@@ -16,7 +15,7 @@ const useSearchData = (pageNumber, endPoint) => {
       }
       return accumulator
     }, [])
-
+  // console.log('data', data)
   useEffect(() => {
     setIsLoading(true)
     setError(false)
@@ -28,10 +27,13 @@ const useSearchData = (pageNumber, endPoint) => {
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
-        console.log(res.data)
         setData((p) => {
-          return uniqueData([...p, ...res.data.results])
+          return [...new Set([...p, ...res.data.results])]
         })
+
+        // setData((p) => {
+        //   return uniqueData([...p, ...res.data.results])
+        // })
         setHasMore(res.data.results.length > 0)
         setIsLoading(false)
       })
@@ -43,7 +45,7 @@ const useSearchData = (pageNumber, endPoint) => {
         console.log('errAxios', e)
       })
     return () => cancel()
-  }, [pageNumber])
+  }, [pageNumber, endPoint])
 
   const getDataId = (id) => {
     const itemId = data.find((item) => {

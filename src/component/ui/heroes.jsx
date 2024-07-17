@@ -2,7 +2,6 @@ import React, { useCallback, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../../../src/index.css'
 import HeroesList from '../page/heroes/heroesList';
-import _ from "lodash"
 import useSearchData from '../../hooks/useSearchData';
 
 const Heroes = () => {
@@ -25,7 +24,7 @@ const Heroes = () => {
 
   const observer = useRef()
   const lastNodeRef = useCallback((node) => {
-    console.log(node);
+    // console.log(node);
     if (isLoading) return;
     if (observer.current) {
       observer.current.disconnect()
@@ -44,7 +43,7 @@ const Heroes = () => {
   return (<>
     {error && (<p>- Ошибка получения данных</p>)}
     {isLoading && (<h1>Загрузка данных</h1>)}
-    <div>
+    <div className='absolute'>
       <button onClick={handleAsc}>Next</button>
       <button onClick={handleDesc}>Previos</button>
     </div>

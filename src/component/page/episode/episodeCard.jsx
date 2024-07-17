@@ -6,7 +6,6 @@ const EpisodeCard = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { data } = useFetch(pathname)
-  const dataById = data
 
   const handleClick = () => {
     navigate('/episode')
@@ -14,12 +13,12 @@ const EpisodeCard = () => {
   return (
     <>
       <div className='cardById'>
-        <h2 className='card-title'>{dataById.name}</h2>
+        <h2 className='card-title'>{data.name}</h2>
         <p className='card-text'>Air_date
-          - {dataById.air_date
+          - {data.air_date
           }</p>
         <p className='card-text'>Episode
-          - {dataById.episode
+          - {data.episode
           }</p>
       </div>
       <button onClick={handleClick} >Вернуться к списку</button>

@@ -29,7 +29,7 @@ const useFetch = (QUERY) => {
           if (!res.ok) throw new Error('Ошибка получения данных')
           return res.json()
         })
-        .then(data => setData(data.results))
+        .then(data => setData(data))
       setIsLoading(false)
     } catch (error) {
       setError(error)
