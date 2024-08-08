@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { BASEURL } from '../path/internalPaths.ts';
 
+
 const useFetch = (QUERY) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -43,7 +44,10 @@ const useFetch = (QUERY) => {
   }
 
   const getDataId = (id) => {
-    return data.find(item => item.id === id)
+    const itemId = data.find(item => {
+      if (item.id === Number(id)) { return item }
+    })
+    return itemId
   }
 
   const formatDataFromSearchCreated = (formatData) => {

@@ -6,7 +6,6 @@ const LocationCard = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { data } = useFetch(pathname)
-  const dataById = data
 
   const handleClick = () => {
     navigate('/location')
@@ -14,12 +13,12 @@ const LocationCard = () => {
   return (
     <>
       <div className='cardById'>
-        <h2 className='card-title'>{dataById.name}</h2>
+        <h2 className='card-title'>{data.name}</h2>
         <p className='card-text'>Dimension
-          - {dataById.dimension
+          - {data.dimension
           }</p>
 
-        <p className='card-text'>Type - {dataById.type}</p>
+        <p className='card-text'>Type - {data.type}</p>
 
       </div>
       <button onClick={handleClick} >Вернуться к списку</button>
